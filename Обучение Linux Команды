@@ -59,7 +59,8 @@ nano                                                          просмотр �
 
 #Конвейер (pipe)
 progr1|progr2|progr3                                          передать stdout progr1 в качестве stdin для progr2 и тд
-
+#можно так cat file.txt | .programm | less
+python3
 
 
 
