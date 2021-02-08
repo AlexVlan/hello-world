@@ -115,6 +115,17 @@ nano ~/.ssh/authorised_keys                                   редактиро
 id_rsa и id_rsa.pub
 кладем ключ в папку ~/.ssh
 
+#Передача файлов
+scp -P(порт) логин@адрес_серв:путь1 путь2                     копирование с сервера(путь1) на клиент(путь2)
+scp -P(порт) путь1 логин@адрес_сервера:путь2                  с клиента на сервер
+
+#Установка программ
+sudo apt-get install programm                                 установка программы
+sudo apt-get remove programm                                  удаление программы
+sudo apt-get update                                           обновление ссылок на пакеты
+sudo apt-get upgrade                                          обвовление установленных пакетов
+sudo apt-get install --only-upgrade программа                 обновление одной программы
+
 
 
 
