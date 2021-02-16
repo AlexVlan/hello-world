@@ -1,1 +1,12 @@
 #Bash
+which programm                                                посмотреть где программа 
+which bash > 1.txt                                            можно положить инфу в файл
+sh                                                            запустить оболочку sh
+my_script.sh                                                  скрипт sh
+##Пример простого скрипта
+
+#!/bin/bash                                                  путь до оболочки которая будет выполнять скрипт
+echo "Hello, world!"                                          вывод
+
+chmod +x my_script.sh                                         сделать исполняемым
+./my_script.sh                                                запуск
