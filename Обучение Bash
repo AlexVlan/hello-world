@@ -193,3 +193,7 @@ fi
 cd /etc                                                  
 a='ls' 
 $a
+
+ cd /etc                                      Вот так тоже работает     
+echo "`pwd`"  
+
