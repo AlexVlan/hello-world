@@ -1,0 +1,41 @@
+#!/bin/bash
+#read min_count max_count  #Получим два значения
+
+########ФУНКЦИЯ
+GCD () { #Функция вычисления наибольшего общего делителя
+        if [[ $min_count -gt $max_count  ]]
+        #разобрать на большее меншее
+          then
+            temp_min=$min_count
+            min_count=$max_count
+            max_count=$temp_min
+        fi
+        if [[ $min_count -ne 0 ]]
+        #вычисления остатка от деления
+          then
+          let "max_count=$max_count % $min_count"
+        fi
+}
+#######END_Function
+
+######Фунция начала работы скрипта
+start_S () {
+read min_count max_count  #Получим два значения
+while [[ $min_count -ne 0 ]]
+#вызывать функцию, до min_count0
+     do
+      GCD
+done
+        echo "GCD is " $max_count
+}
+######END_Function
+
+start_S #Первый раз запустить функцию для сбора инфы
+
+while [[ -n $min_count || -n $max_count  ]] #Пока переменная не пуста, запускаем фунуцию
+   do
+     start_S
+     if [[ -z $min_count || -z $max_count  ]]; then
+     echo "bye"
+     fi
+done
