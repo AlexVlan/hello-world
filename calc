@@ -12,7 +12,7 @@ division (){ #деление
         let "result=$operand_1 / $operand_2"
         echo $result
 }
-multiplication (){ #умножеине
+multiplication_2 (){ #умножеине
         let "result=$operand_1 * $operand_2"
         echo $result
 }
@@ -25,7 +25,7 @@ power (){ #возведение в степень
         echo $result
 }
 oper_in () { #функция определения оператора
-    case $operator in
+        case $operator in
          +)
            addition
           ;;
@@ -35,11 +35,11 @@ oper_in () { #функция определения оператора
          /)
            division
           ;;
-         *)
-           multiplication
-          ;;
          %)
            remainder
+          ;;
+          *)
+           multiplication_2
           ;;
          **)
            power
