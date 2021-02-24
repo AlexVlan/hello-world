@@ -25,38 +25,39 @@ power (){ #возведение в степень
         echo $result
 }
 oper_in () { #функция определения оператора
-        if [[ $operator == "*" ]]; then
-            multiplication_2
-        else
         case $operator in
-         +)
+         "*")
+            multiplication_2
+            ;;
+         "+")
            addition
           ;;
-         -)
+         "-")
            subtraction
           ;;
-         /)
+         "/")
            division
           ;;
-         %)
+         "%")
            remainder
           ;;
-         **)
+         "**")
            power
           ;;
           *)
            echo "error"
           ;;
     esac
-        fi
 }
+
 start_calc () { #Функция начала работы калькулятора
         read operand_1 operator operand_2
         while  [[ -n $operand_1 || -n $operator || -n $operand_2  ]]; do #пока переменные не пусты проверяем условия
                 if [[ $operand_1 == "exit"  ]]; then #выход по желанию пользователя
                     echo "bye"
                     exit
-                elif [[ $operand_1 =~ ^[0-9]+$ && $operand_2 =~ ^[0-9]+$ ]]; then #запуск рассчета, переменные обнуляем после итерации
+                elif [[ $operand_1 =~ ^[0-9]+$ && $operand_2 =~ ^[0-9]+$ ]]; then #запуск рассчета, переменные обнуля
+ем после итерации
                     oper_in
                     operand_1=""
                     operand_2=""
