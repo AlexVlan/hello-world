@@ -38,11 +38,11 @@ oper_in () { #функция определения оператора
          %)
            remainder
           ;;
-          *)
-           multiplication_2
-          ;;
          **)
            power
+          ;;
+          *)
+           multiplication_2
           ;;
     esac
 }
