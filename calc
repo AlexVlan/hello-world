@@ -25,6 +25,9 @@ power (){ #возведение в степень
         echo $result
 }
 oper_in () { #функция определения оператора
+        if [[ $operator == "*" ]]; then
+            multiplication_2
+        else
         case $operator in
          +)
            addition
@@ -42,9 +45,10 @@ oper_in () { #функция определения оператора
            power
           ;;
           *)
-           multiplication_2
+           echo "error"
           ;;
     esac
+        fi
 }
 start_calc () { #Функция начала работы калькулятора
         read operand_1 operator operand_2
