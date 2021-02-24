@@ -1,0 +1,72 @@
+#!/bin/bash
+#Функции вычислений
+addition () { #сложение
+        let "result=$operand_1 + $operand_2"
+        echo $result
+}
+subtraction (){ #вычитание
+        let "result=$operand_1 - $operand_2"
+        echo $result
+}
+division (){ #деление
+        let "result=$operand_1 / $operand_2"
+        echo $result
+}
+multiplication (){ #умножеине
+        let "result=$operand_1 * $operand_2"
+        echo $result
+}
+remainder (){ #остаток от деления
+        let "result=$operand_1 % $operand_2"
+        echo $result
+}
+power (){ #возведение в степень
+        let "result=$operand_1 ** $operand_2"
+        echo $result
+}
+oper_in () { #функция определения оператора
+    case $operator in
+         +)
+           addition
+          ;;
+         -)
+           subtraction
+          ;;
+         /)
+           division
+          ;;
+         *)
+           multiplication
+          ;;
+         %)
+           remainder
+          ;;
+         **)
+           power
+          ;;
+    esac
+}
+start_calc () { #Функция начала работы калькулятора
+        read operand_1 operator operand_2
+        while  [[ -n $operand_1 || -n $operator || -n $operand_2  ]]; do #пока переменные не пусты проверяем условия
+                if [[ $operand_1 == "exit"  ]]; then #выход по желанию пользователя
+                    echo "bye"
+                    exit
+                elif [[ $operand_1 =~ ^[0-9]+$ && $operand_2 =~ ^[0-9]+$ ]]; then #запуск рассчета, переменные обнуляем после итерации
+                    oper_in
+                    operand_1=""
+                    operand_2=""
+                    operator=""
+                    start_calc
+                else #все что не разрешено, запрещено
+                    echo "error"
+                    exit
+               fi
+
+       done
+}
+
+#Первый запуск если одна из переменных пуста, отдаем управление функции
+if [[ -z $operand_1 || -z $operator || -z $operand_2  ]]; then
+     start_calc
+fi
