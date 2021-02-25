@@ -287,5 +287,6 @@ chown new_user:new_group <путь>
 chown zoidberg file.txt                                      -изменит пользователя владельца
 chown :futurama file.txt                                      изменит группу владельца
 
+команда1; команда2; команда3
 
 
