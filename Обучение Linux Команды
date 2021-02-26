@@ -79,7 +79,7 @@ program &>> both.txt
                                     #Перенаправление в никуда и из ниоткуда:
 /dev/null
 program 2>/dev/null
-cat /dev/null > file.txt
+cat /dev/null > file.txt                                      полезно когда не нужен вывод, или нужно сделать файл пустым
 
 #Конвейер (pipe)
 progr1|progr2|progr3                                          передать stdout progr1 в качестве stdin для progr2 и тд
