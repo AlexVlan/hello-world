@@ -343,3 +343,10 @@ chown :futurama file.txt                                      изменит г�
 команда1; команда2; команда3
 
 
+selinux
+sudo yum install setroubleshoot -y
+dnf install policycoreutils-python-utils -y
+sealert -a /var/log/audit/audit.log
+
+/sbin/restorecon -v /var/log/openvpn/openvpn.log
+/sbin/restorecon -v /var/log/openvpn/openvpn-status.log
